@@ -1,12 +1,31 @@
-import "./App.css";
-
+// src/App.jsx
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from "react-router-dom";
+import Home from "./Pages/Home";
+import Products from "./Pages/Products";
+import ProductDetail from "./Pages/ProductDetail";
+import Navbar from "./Components/Navbar";
+const ProductDetailWrapper = () => {
+  const { id } = useParams();
+  return <ProductDetail productId={id} />;
+};
 function App() {
   return (
-    <>
-      <h1 className="mt-3 text-blue-500">
-        Ecommerce Demo App using Fake Store API
-      </h1>
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/products/:id" element={<ProductDetailWrapper />} />
+        {/* Add other routes as needed */}
+      </Routes>
+    </Router>
   );
 }
 
