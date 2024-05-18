@@ -6,7 +6,7 @@ import {
   Route,
   useParams,
 } from "react-router-dom";
-import Home from "./Pages/Home";
+//import Home from "./Pages/Home.jsx";
 import Products from "./Pages/Products";
 import ProductDetail from "./Pages/ProductDetail";
 import Navbar from "./Components/Navbar";
@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/products/:id" element={<ProductDetailWrapper />} />
