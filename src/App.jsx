@@ -10,7 +10,6 @@ import Products from "./Pages/Products";
 import ProductDetail from "./Pages/ProductDetail";
 import Navbar from "./Components/Navbar";
 import ProductsByCategory from "./Pages/ProductsByCategory";
-import Slider from "./Components/Slider";
 
 const ProductDetailWrapper = () => {
   const { id } = useParams();
@@ -21,7 +20,6 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Slider />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<Products />} />

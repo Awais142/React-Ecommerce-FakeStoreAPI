@@ -1,6 +1,8 @@
+// src/Pages/Home.jsx
 import React, { useEffect, useState } from "react";
-import ProductCard from "../Components/ProductCard"; // Adjust the path as necessary
+import ProductCard from "../Components/ProductCard";
 import Loader from "../Components/Loader";
+import SliderComponent from "../Components/SliderComponent";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -24,28 +26,22 @@ function Home() {
     };
 
     fetchProducts();
-  }, []); // The empty dependency array ensures this runs only once when the component mounts
-
-  if (loading) {
-    return (
-      <div>
-        <Loader />
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  }, []);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Homepage</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+    <div className="container mx-auto p-2">
+      <SliderComponent />
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <div>Error: {error}</div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

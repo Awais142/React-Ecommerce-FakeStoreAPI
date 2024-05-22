@@ -1,6 +1,13 @@
+/* Import slick-carousel css files */
+/* src/index.css or src/App.css */
+@import "../node_modules/slick-carousel/slick/slick.css";
+@import "../node_modules/slick-carousel/slick/slick-theme.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Import slick-carousel css files */
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+  background: #ffffff;
+}

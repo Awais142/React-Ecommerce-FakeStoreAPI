@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
+import Loader from "../Components/Loader";
 
 const ProductsByCategory = () => {
   const { category } = useParams(); // Use useParams to get the category
@@ -31,9 +32,11 @@ const ProductsByCategory = () => {
 
   return (
     <div>
-      <h2>Products in {category}</h2>
+      <h2 className="text-2xl flex justify-center font-bold">
+        Products in {category}
+      </h2>
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : error ? (
         <p>Error: {error}</p>
       ) : (
