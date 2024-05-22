@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => (
-  <div className="flex justify-evenly items-center font-bold text-zinc-50 w-100 h-10 mb-5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-1">
+  <div className="flex justify-start items-center font-bold sticky top-0 text-slate-950 h-16 mb-5 p-12 bg-orange-100 z-50">
+    <div className="logo w-48 h-48">
+      <img src="public/Assets/logo.png" alt="" />
+    </div>
     <nav>
       <Link className="px-3" to="/">
         Home

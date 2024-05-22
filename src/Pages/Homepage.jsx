@@ -29,7 +29,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="container mx-auto p-2">
+    <div className="container p-2 mx-auto">
       <SliderComponent />
       {loading ? (
         <Loader />

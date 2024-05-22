@@ -53,7 +53,7 @@ const SliderComponent = () => {
 
   return (
     <Slider {...settings}>
-      <div className="w-full h-full m-0 p-0">
+      <div className="w-full h-auto m-0 p-0">
         <img
           src="public/Assets/slide.png"
           alt="Slide 1"
