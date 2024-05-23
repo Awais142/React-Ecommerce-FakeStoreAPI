@@ -55,21 +55,21 @@ const SliderComponent = () => {
     <Slider {...settings}>
       <div className="w-full h-auto m-0 p-0">
         <img
-          src="public/Assets/slide.png"
+          src="/Assets/slide.png"
           alt="Slide 1"
           className="w-full h-auto object-cover"
         />
       </div>
       <div>
         <img
-          src="public/Assets/slide 1.png"
+          src="/Assets/slide 1.png"
           alt="Slide 2"
           className="w-full h-auto object-cover"
         />
       </div>
       <div>
         <img
-          src="public/Assets/slide 3.png"
+          src="/Assets/slide 3.png"
           alt="Slide 3"
           className="w-full h-auto object-cover"
         />
