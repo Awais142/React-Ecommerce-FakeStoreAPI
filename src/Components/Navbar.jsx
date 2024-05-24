@@ -1,74 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-const Navbar = () => (
-  <div className="flex justify-start items-center font-bold sticky top-0 text-slate-950 h-16 mb-5 p-12 bg-orange-100 z-50">
-    <div className="logo w-48 h-48">
-      <img src="/Assets/logo.png" alt="" />
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  return (
+    <div className="flex justify-between items-center font-bold sticky top-0 text-slate-950 h-16 mb-5 px-6 bg-orange-100 z-50">
+      <div className="logo w-32 h-32 md:w-32 md:h-32">
+        <img src="/Assets/logo.png" alt="Logo" className="w-full h-auto   " />
+      </div>
+      <nav className="hidden md:flex space-x-6">
+        <Link className="px-3" to="/">
+          Home
+        </Link>
+        <Link className="px-3" to="/products">
+          Products
+        </Link>
+        <Link className="px-3" to="/products/category/electronics">
+          Electronics
+        </Link>
+        <Link className="px-3" to="/products/category/jewelery">
+          Jewelry
+        </Link>
+        <Link className="px-3" to="/products/category/men's%20clothing">
+          Men's Clothing
+        </Link>
+        <Link className="px-3" to="/products/category/women's%20clothing">
+          Women's Clothing
+        </Link>
+      </nav>
+      <div className="md:hidden flex items-center">
+        <button onClick={toggleMenu} className="text-2xl">
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+      {menuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-orange-100 z-50 flex flex-col items-center md:hidden">
+          <Link className="py-2" to="/" onClick={toggleMenu}>
+            Home
+          </Link>
+          <Link className="py-2" to="/products" onClick={toggleMenu}>
+            Products
+          </Link>
+          <Link
+            className="py-2"
+            to="/products/category/electronics"
+            onClick={toggleMenu}
+          >
+            Electronics
+          </Link>
+          <Link
+            className="py-2"
+            to="/products/category/jewelery"
+            onClick={toggleMenu}
+          >
+            Jewelry
+          </Link>
+          <Link
+            className="py-2"
+            to="/products/category/men's%20clothing"
+            onClick={toggleMenu}
+          >
+            Men's Clothing
+          </Link>
+          <Link
+            className="py-2"
+            to="/products/category/women's%20clothing"
+            onClick={toggleMenu}
+          >
+            Women's Clothing
+          </Link>
+        </div>
+      )}
     </div>
-    <nav>
-      <Link className="px-3" to="/">
-        Home
-      </Link>
-      <Link className="px-3" to="/products">
-        Products
-      </Link>
-      <Link className="px-3" to="/products/category/electronics">
-        Electronics
-      </Link>
-      <Link className="px-3" to="/products/category/jewelery">
-        Jewelry
-      </Link>
-      <Link className="px-3" to="/products/category/men's%20clothing">
-        Men's Clothing
-      </Link>
-      <Link className="px-3" to="/products/category/women's%20clothing">
-        Women's Clothing
-      </Link>
-    </nav>
-  </div>
-);
+  );
+};
 
 export default Navbar;
-
-// import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-
-// function Header() {
-//   const [categories, setCategories] = useState([]);
-
-//   useEffect(() => {
-//     fetchCategories();
-//   }, []);
-
-//   const fetchCategories = async () => {
-//     try {
-//       const response = await fetch(
-//         "https://fakestoreapi.com/products/categories"
-//       );
-//       const data = await response.json();
-//       setCategories(data);
-//     } catch (error) {
-//       console.error("Error fetching categories:", error);
-//     }
-//   };
-
-//   return (
-//     <header>
-//       <nav>
-//         <ul>
-//           <li>
-//             <Link to="/">Home</Link>
-//           </li>
-//           {categories.map((category) => (
-//             <li key={category}>
-//               <Link to={`/category/${category}`}>{category}</Link>
-//             </li>
-//           ))}
-//         </ul>
-//       </nav>
-//     </header>
-//   );
-// }
-
-// export default Header;
