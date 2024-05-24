@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center font-bold sticky top-0 text-slate-950 h-16 mb-5 px-6 bg-orange-100 z-50">
+    <div className="flex justify-between items-center font-bold sticky top-0 text-slate-950 h-16 mb-5 pe-6 bg-orange-100 z-50">
       <div className="logo w-32 h-32 md:w-32 md:h-32">
         <img src="/Assets/logo.png" alt="Logo" className="w-full h-auto   " />
       </div>

@@ -6,8 +6,13 @@ const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "black" }}
+      className={`${className} next-arrow`}
+      style={{
+        ...style,
+        display: "block",
+        background: "black",
+        right: "10px", // Move arrow inside
+      }}
       onClick={onClick}
     />
   );
@@ -17,8 +22,14 @@ const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "black" }}
+      className={`${className} prev-arrow`}
+      style={{
+        ...style,
+        display: "block",
+        background: "black",
+        left: "10px", // Move arrow inside
+        zIndex: 1, // Ensure it's above other elements
+      }}
       onClick={onClick}
     />
   );
@@ -60,14 +71,14 @@ const SliderComponent = () => {
           className="w-full h-auto object-cover"
         />
       </div>
-      <div>
+      <div className="w-full h-auto m-0 p-0">
         <img
           src="/Assets/slide 1.png"
           alt="Slide 2"
           className="w-full h-auto object-cover"
         />
       </div>
-      <div>
+      <div className="w-full h-auto m-0 p-0">
         <img
           src="/Assets/slide 3.png"
           alt="Slide 3"
